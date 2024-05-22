@@ -1,3 +1,8 @@
+-- Patrick e Vinicius
+-- Oracle SQL Developes
+
+-- Criação das tabelas / banco de dados
+
 CREATE TABLE Pessoa
 ( 
 
@@ -30,7 +35,7 @@ CONSTRAINT  Pessoa_idPessoa FOREIGN KEY (idPessoa) REFERENCES pessoa(idPessoa)
 CREATE TABLE Passeio
 (
 
-num_portas NUMBER PRIMARY KEY,
+num_portas NUMBER,
 volume_portamalas FLOAT,
 chassi VARCHAR(17),
 CONSTRAINT Veiculo_chassi FOREIGN KEY (chassi) REFERENCES Veiculo(chassi)
@@ -40,9 +45,30 @@ CONSTRAINT Veiculo_chassi FOREIGN KEY (chassi) REFERENCES Veiculo(chassi)
 CREATE TABLE Motocicleta
 (
 
-capacidade_tanque FLOAT PRIMARY KEY,
+capacidade_tanque FLOAT,
 cilindradas FLOAT,
 chassi VARCHAR(17),
 CONSTRAINT Veiculo_chassi_moto FOREIGN KEY (chassi) REFERENCES Veiculo(chassi)
 
 );
+
+
+-- Inserções 
+
+INSERT INTO PESSOA (idPessoa, nome, cpf, endereco, cidade, uf, datanasc) VALUES (1, 'PEDRO', '12345678912', 'RUA DAS GRAÇAS', 'SÃO PAULO', 'SP', '12/04/1975');
+INSERT INTO PESSOA (idPessoa, nome, cpf, endereco, cidade, uf, datanasc) VALUES (2, 'JOÃO', '21987654321', 'RUA DAS DESGRAÇAS', 'RIO DE JANEIRO', 'RJ', '10/02/1980');
+INSERT INTO PESSOA (idPessoa, nome, cpf, endereco, cidade, uf, datanasc) VALUES (3, 'MARCELO', '15461318612', 'RUA DAS RUAS', 'GUATAMBU', 'SC', '25/01/1968');
+INSERT INTO PESSOA (idPessoa, nome, cpf, endereco, cidade, uf, datanasc) VALUES (4, 'BERNARDO', '12345699812', 'RUA DOS PARTOS', 'XAXIM', 'SC', '10/10/1990');
+
+
+INSERT INTO VEICULO (placa, chassi, marca, modelo, ano, cor, cidade_origem, uf_origem, idPessoa) VALUES ('ABCD301', '123456789123', 'VOLKSWAGEN', 'GOL', 2010, 'BRANCO', 'SÃO PAULO', 'SP', 1);
+INSERT INTO VEICULO (placa, chassi, marca, modelo, ano, cor, cidade_origem, uf_origem, idPessoa) VALUES ('EFGH201', '321987654321', 'NISSAN', 'GTR', 2024, 'BRANCO', 'CHAPECO', 'SC', 2);
+INSERT INTO VEICULO (placa, chassi, marca, modelo, ano, cor, cidade_origem, uf_origem, idPessoa) VALUES ('IJKL101', '135798462012', 'KAWASAKI', 'NINJA', 2020, 'VERDE', 'RIO DE JANEIRO', 'RJ', 3);
+INSERT INTO VEICULO (placa, chassi, marca, modelo, ano, cor, cidade_origem, uf_origem, idPessoa) VALUES ('MNOP000', '246810975310', 'HONDA', 'BIZ', 2024, 'PRETO', 'GUATAMBU', 'SC', 4);
+
+
+INSERT INTO PASSEIO (num_portas, volume_portamalas, chassi) VALUES (4, 30, '321987654321');
+INSERT INTO PASSEIO (num_portas, volume_portamalas, chassi) VALUES (4, 38, '123456789123');
+
+INSERT INTO MOTOCICLETA(capacidade_tanque, cilindradas, chassi) VALUES (20, 400, '135798462012');
+INSERT INTO MOTOCICLETA(capacidade_tanque, cilindradas, chassi) VALUES (20, 100, '246810975310');
