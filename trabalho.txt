@@ -27,8 +27,6 @@ CONSTRAINT  Pessoa_idPessoa FOREIGN KEY (idPessoa) REFERENCES pessoa(idPessoa)
 
 );
 
-DROP TABLE VEICULO
-
 CREATE TABLE Passeio
 (
 
@@ -48,5 +46,3 @@ chassi VARCHAR(17),
 CONSTRAINT Veiculo_chassi_moto FOREIGN KEY (chassi) REFERENCES Veiculo(chassi)
 
 );
-
-DROP TABLE VEICULO
