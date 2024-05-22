@@ -1,0 +1,52 @@
+CREATE TABLE Pessoa
+( 
+
+idPessoa NUMBER PRIMARY KEY, 
+nome VARCHAR(45),
+cpf NUMBER, 
+endereco VARCHAR(100),
+cidade VARCHAR(20),
+uf VARCHAR(2),
+datanasc DATE
+
+);
+
+CREATE TABLE Veiculo
+( 
+
+placa VARCHAR(7),
+chassi VARCHAR(17) PRIMARY KEY,
+marca VARCHAR(10),
+modelo VARCHAR(10),
+ano NUMBER(4),
+cor VARCHAR(12),
+cidade_origem VARCHAR(20),
+uf_origem VARCHAR(2),
+idPessoa NUMBER,
+CONSTRAINT  Pessoa_idPessoa FOREIGN KEY (idPessoa) REFERENCES pessoa(idPessoa)
+
+);
+
+DROP TABLE VEICULO
+
+CREATE TABLE Passeio
+(
+
+num_portas NUMBER PRIMARY KEY,
+volume_portamalas FLOAT,
+chassi VARCHAR(17),
+CONSTRAINT Veiculo_chassi FOREIGN KEY (chassi) REFERENCES Veiculo(chassi)
+
+);
+
+CREATE TABLE Motocicleta
+(
+
+capacidade_tanque FLOAT PRIMARY KEY,
+cilindradas FLOAT,
+chassi VARCHAR(17),
+CONSTRAINT Veiculo_chassi_moto FOREIGN KEY (chassi) REFERENCES Veiculo(chassi)
+
+);
+
+DROP TABLE VEICULO
